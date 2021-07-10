@@ -1,3 +1,4 @@
+// O(n)
 function sameSquare(arr1, arr2) {
 
   if(arr1.length !== arr2.length) {
@@ -26,7 +27,7 @@ function sameSquare(arr1, arr2) {
 }
 
 
-
+// O(n^2)
 function sameSquare2(arr1, arr2) {
   if(arr1.length !== arr2.length) {
     return false;
@@ -46,8 +47,9 @@ function sameSquare2(arr1, arr2) {
 
 }
 
+const testFunc = sameSquare
 
-console.log(sameSquare([1,2,3], [4,1,9]) === true )
-console.log(sameSquare([1,2,2,3], [1,9, 4, 4]) === true)
-console.log(sameSquare([1,2,3], [1,9]) === false)
-console.log(sameSquare([1,2,1], [4,4,1]) === false)
+console.log(testFunc([1,2,3], [4,1,9]) === true )
+console.log(testFunc([1,2,2,3], [1,9, 4, 4]) === true)
+console.log(testFunc([1,2,3], [1,9]) === false)
+console.log(testFunc([1,2,1], [4,4,1]) === false)

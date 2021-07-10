@@ -1,4 +1,4 @@
-// BigO of O(n)
+// O(n)
 function validAnagram(str1, str2) {
 
   if(str1.length !== str2.length) {
@@ -30,7 +30,7 @@ function validAnagram(str1, str2) {
 }
 
 
-// BigO of O(n2)
+// O(n^2)
 function validAnagram2(str1, str2) {
 
   if(str1.length !== str2.length) {
@@ -60,10 +60,11 @@ function validAnagram2(str1, str2) {
 }
 
 
+const testFunc = validAnagram2
 
-console.log(validAnagram2('', '') === true )
-console.log(validAnagram2('aaz', 'zza') === false)
-console.log(validAnagram2('anagram', 'nagaram') === true)
-console.log(validAnagram2('rat', 'car') === false)
-console.log(validAnagram2('awesome', 'awesom') === false)
-console.log(validAnagram2('texttwisttime', 'timetwisttext') === true)
+console.log(testFunc('', '') === true )
+console.log(testFunc('aaz', 'zza') === false)
+console.log(testFunc('anagram', 'nagaram') === true)
+console.log(testFunc('rat', 'car') === false)
+console.log(testFunc('awesome', 'awesom') === false)
+console.log(testFunc('texttwisttime', 'timetwisttext') === true)
