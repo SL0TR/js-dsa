@@ -12,14 +12,10 @@ function maxSubarraySum(arr, num) {
 
   tempSum = maxSum;
 
-
   for(let i = num; i < arr.length; i++) {
     const leftNum = arr[i - num];
     const rightNum = arr[i];
     tempSum = (tempSum - leftNum) + rightNum;
-
-    // console.log({tempSum, maxSum, leftNum, rightNum, })
-
     maxSum = Math.max(maxSum, tempSum)
 
   }
@@ -29,38 +25,8 @@ function maxSubarraySum(arr, num) {
 }
 
 
-function maxSubarraySum2(arr, num) {
-  if(num > arr.length) {
-    return null;
-  }
-
-  let maxSum = 0;
-
-  for(let i = 0; i < num; i++) {
-    maxSum += arr[i]
-  }
-
-  console.log({ maxSum})
-
-  for(let i = num; i < arr.length; i++) {
-    const leftNum = arr[i - num];
-    const rightNum = arr[i];
-    const tempSum = (maxSum - leftNum) + rightNum;
-
-    console.log({tempSum, maxSum, leftNum, rightNum, })
-
-    if(tempSum > maxSum) {
-      maxSum = tempSum;
-    }
-
-  }
-
-  return maxSum
-
-}
-
 // O(n^2)
-function maxSubarraySum2(arr, num) {
+function maxSubarraySum3(arr, num) {
   if(num > arr.length) {
     return null;
   }
