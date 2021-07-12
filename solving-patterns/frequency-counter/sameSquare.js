@@ -8,20 +8,18 @@ function sameSquare(arr1, arr2) {
   }
 
   let frqCounter1 = {}
-  let frqCounter2 = {}
 
   for(const val of arr1) {
     frqCounter1[val] = (frqCounter1[val] || 0) + 1
   }
 
-  for(const val of arr2) {
-    frqCounter2[val] = (frqCounter2[val] || 0) + 1
-  }
+  for(const item of arr2) {
+    const suqredItem = Math.sqrt(item)
 
-  for(const key in frqCounter1) {
-    if(!(key ** 2 in frqCounter2)) return false;
-
-    if(frqCounter2[key ** 2] !== frqCounter1[key]) return false
+    if(!frqCounter1[suqredItem]) {
+      return false
+    }
+    frqCounter1[suqredItem]--
   }
 
   return true;
