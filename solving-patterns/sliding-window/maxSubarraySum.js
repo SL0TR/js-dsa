@@ -1,3 +1,6 @@
+// Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n consecutive elements in the array.
+
+// Time: O(n) with two loops
 function maxSubarraySum(arr, num) {
   if(num > arr.length) {
     return null;
@@ -17,6 +20,31 @@ function maxSubarraySum(arr, num) {
     const rightNum = arr[i];
     tempSum = (tempSum - leftNum) + rightNum;
     maxSum = Math.max(maxSum, tempSum)
+
+  }
+
+  return maxSum
+
+}
+
+// Time: O(n) with 1 loops=
+
+function maxSubarraySum2(arr, num) {
+  if(num > arr.length) {
+    return null;
+  }
+
+  let maxSum = -Infinity;
+  let tempSum = 0;
+
+  for(let i = 0; i < arr.length; i++) {
+    tempSum += arr[i];
+
+    if(i >= num -1) {
+      maxSum = Math.max(maxSum, tempSum);
+      tempSum -= arr[i - (num -1)]
+
+    }
 
   }
 
@@ -47,7 +75,8 @@ function maxSubarraySum3(arr, num) {
   return max;
 }
 
-const testFunc = maxSubarraySum;
+const testFunc = maxSubarraySum2;
+
 
 console.log(testFunc([1,2,5,2,8,1,5], 2) === 10);
 console.log(testFunc([1,2,5,2,8,1,5], 4) === 17);
