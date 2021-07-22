@@ -3,13 +3,37 @@
 function collectStrings(obj) {
     let arr = [];
 
+    const helper = function(helperInput) {
+
+        const keys = Object.keys(helperInput);
+
+        if(!keys.length) {
+            return
+        }
+
+        for(const key of keys) {
+            if(typeof helperInput[key] === 'string') {
+                arr.push(helperInput[key])
+            }
+
+            if(typeof helperInput[key] === 'object') {
+                helper(helperInput[key])
+            }
+
+        }
+        
+    }
+
+    helper(obj)
     
+    return arr;
 
 }
 
 
 const obj = {
   stuff: "foo",
+  lang: 1,
   data: {
       val: {
           thing: {
@@ -24,4 +48,4 @@ const obj = {
   }
 }
 
-collectStrings(obj) // ["foo", "bar", "baz"])
+console.log(collectStrings(obj)) // ["foo", "bar", "baz"])
