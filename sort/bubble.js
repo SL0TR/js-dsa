@@ -1,4 +1,4 @@
-function bubbleSort(arr) {
+export function bubbleSort(arr) {
   let operations = 0;
   let noSwaps;
   for (let i = 0; i < arr.length; i++) {
@@ -26,7 +26,7 @@ function bubbleSort(arr) {
   return arr;
 }
 
-function bubbleSort2(arr) {
+export function bubbleSort2(arr) {
   let noSwaps;
   let operations = 0;
   for (let i = arr.length; i > 0; i--) {
