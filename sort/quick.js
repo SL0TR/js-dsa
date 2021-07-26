@@ -33,4 +33,4 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 const testFunc = quickSort;
 
 console.log(testFunc([1, 10, 50, 2, 14, 99, 100]));
-// console.log(testFunc([10, 5, 100, 2000, 23, 123, 67, 47, 2345, 32]));
+console.log(testFunc([10, 5, 100, 2000, 23, 123, 67, 47, 2345, 32]));
