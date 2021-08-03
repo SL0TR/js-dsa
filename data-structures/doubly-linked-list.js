@@ -157,23 +157,40 @@ class DoublyLinkedList {
     }
 
     const indexNode = this.get(index);
-    const beforeIndexNode = indexNode.prev;
-    const afterIndexNode = indexNode.next;
 
-    beforeIndexNode.next = indexNode.next;
-    beforeIndexNode.prev = indexNode.prev;
-    afterIndexNode.prev = beforeIndexNode;
+    indexNode.prev.next = indexNode.next;
+    indexNode.next.prev = indexNode.prev;
+
+    indexNode.next = null;
+    indexNode.prev = null;
 
     this.length--;
-    return this;
+    return indexNode;
+  }
+
+  print() {
+    let string = "";
+    let current = this.head;
+
+    while (current) {
+      string += `${current.val}${current.next ? " <==> " : ""}`;
+      current = current.next;
+    }
+
+    return string;
+  }
+
+  reverse() {
+    const current = this.head;
+    // to do
   }
 }
 
 const doublyLinkedList = new DoublyLinkedList();
 
-new Array(15).fill("").forEach((_, i) => {
-  doublyLinkedList.push(i + 1);
-});
+for (let i = 1; i < 15; i++) {
+  doublyLinkedList.push(i);
+}
 
 // console.log(doublyLinkedList.pop());
 // console.log(doublyLinkedList.shift());
@@ -181,4 +198,7 @@ new Array(15).fill("").forEach((_, i) => {
 // console.log(doublyLinkedList.get(7));
 // console.log(doublyLinkedList.set(7, 10));
 // console.log(doublyLinkedList.insert(7, 8));
-console.log(doublyLinkedList.remove(3));
+// console.log(doublyLinkedList.remove(3));
+console.log(doublyLinkedList.print());
+console.log(doublyLinkedList.reverse());
+console.log(doublyLinkedList.print());
