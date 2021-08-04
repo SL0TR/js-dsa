@@ -180,9 +180,19 @@ class DoublyLinkedList {
     return string;
   }
 
-  reverse() {
-    const current = this.head;
-    // to do
+  reverse(head) {
+    let current = head;
+
+    while (current) {
+      let next = current.next;
+      current.next = current.prev;
+      current.prev = next;
+
+      head = current;
+      current = next;
+    }
+
+    return head;
   }
 }
 
@@ -199,6 +209,5 @@ for (let i = 1; i < 15; i++) {
 // console.log(doublyLinkedList.set(7, 10));
 // console.log(doublyLinkedList.insert(7, 8));
 // console.log(doublyLinkedList.remove(3));
-console.log(doublyLinkedList.print());
-console.log(doublyLinkedList.reverse());
-console.log(doublyLinkedList.print());
+// console.log(doublyLinkedList.print());
+console.log(doublyLinkedList.reverse(doublyLinkedList.head));
