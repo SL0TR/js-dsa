@@ -86,6 +86,76 @@ class BinarySearchTree {
 
     return data;
   }
+
+  DFSPreOrder() {
+    const visited = [];
+
+    const recurseHelper = (node) => {
+      if (!node) {
+        return;
+      }
+
+      visited.push(node.value);
+
+      if (node.left) {
+        recurseHelper(node.left);
+      }
+      if (node.right) {
+        recurseHelper(node.right);
+      }
+    };
+
+    recurseHelper(this.root);
+
+    return visited;
+  }
+
+  DFSPostOrder() {
+    const visited = [];
+
+    const recurseHelper = (node) => {
+      if (!node) {
+        return;
+      }
+
+      if (node.left) {
+        recurseHelper(node.left);
+      }
+      if (node.right) {
+        recurseHelper(node.right);
+      }
+
+      visited.push(node.value);
+    };
+
+    recurseHelper(this.root);
+
+    return visited;
+  }
+
+  DFSInOrder() {
+    const visited = [];
+
+    const recurseHelper = (node) => {
+      if (!node) {
+        return;
+      }
+
+      if (node.left) {
+        recurseHelper(node.left);
+      }
+
+      visited.push(node.value);
+
+      if (node.right) {
+        recurseHelper(node.right);
+      }
+    };
+
+    recurseHelper(this.root);
+
+    return visited;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -100,4 +170,7 @@ bst.insert(51);
 bst.insert(69);
 
 // console.dir(bst.find(101));
-console.dir(bst.BFS());
+// console.dir(bst.BFS());
+// console.dir(bst.DFSPreOrder());
+// console.dir(bst.DFSPostOrder());
+console.dir(bst.DFSInOrder());
